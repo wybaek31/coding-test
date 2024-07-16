@@ -1,29 +1,24 @@
 package com.lapa.programmers.lapa202407;
 
 import java.util.ArrayDeque;
+import java.util.Scanner;
 
 public class Day240715_01 {
+    private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println(solution("cdcd"));
-    }
+        int N = scanner.nextInt();
 
-    public static int solution(String input) {
-        ArrayDeque<Character> stack = new ArrayDeque<>();
-
-        for (int i=0; i<input.length(); i++) {
-            char c = input.charAt(i);
-            if (stack.isEmpty()) {
-                stack.push(c);
-                continue;
-            }
-
-            char pop = stack.pop();
-            if (pop != c) {
-                stack.push(pop);
-                stack.push(c);
-            }
+        if ( N % 2 == 1) {
+            System.out.println("Weird");
+        } else if (2 <= N && N <=5) {
+            System.out.println("Not Weird");
+        } else if (6 <= N && N <= 20) {
+            System.out.println("Weird");
+        } else if (N > 20) {
+            System.out.println("Not Weird");
         }
 
-        return stack.isEmpty() ? 1 : 0;
+        scanner.close();
     }
+
 }
